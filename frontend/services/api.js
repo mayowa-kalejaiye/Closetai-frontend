@@ -1,11 +1,15 @@
 import axios from 'axios'
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000'
+const API_BASE = process.env.NEXT_PUBLIC_API_URL
 
 export const api = axios.create({
   baseURL: API_BASE,
   withCredentials: true,
 })
+
+if (process.env.NODE_ENV !== 'production') {
+  console.log('API client base URL:', API_BASE)
+}
 
 // Simple client-side cache for wardrobe list to avoid repeated fetches
 const WARDROBE_CACHE_KEY = 'closetai_wardrobe_cache_v1'
@@ -234,8 +238,16 @@ export async function register(body){
 }
 
 export async function login(body){
-  const res = await api.post('/auth/login', body)
-  return res.data
+  try {
+    const res = await api.post('/auth/login', body)
+    return res.data
+  } catch (err) {
+    // Log helpful debug info for network / CORS / backend errors
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('API login error:', err && err.message, err && err.response && err.response.status, err && err.response && err.response.data)
+    }
+    throw err
+  }
 }
 
 export async function refresh(){
@@ -300,5 +312,13 @@ export async function joinEarlyAccess(email){
 
 export async function tryOn(itemId){
   const res = await api.get(`/wardrobe/${itemId}/tryon`)
+  return res.data
+}
+
+// Upload a user's face image (used during onboarding)
+export async function uploadFace(file){
+  const formData = new FormData()
+  formData.append('file', file)
+  const res = await api.post('/users/upload-face', formData, { headers: { 'Content-Type': 'multipart/form-data' } })
   return res.data
 }
