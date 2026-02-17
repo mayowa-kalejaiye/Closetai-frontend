@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Dancing+Script:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #__next { height: 100%; }
+body { font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+
+/* small utility class for buttons used in components */
+.btn { @apply px-4 py-3 md:py-2 rounded-md bg-gray-900 text-white hover:bg-gray-800; }
+
+/* layout helpers */
+.container { @apply max-w-5xl mx-auto px-4 }
+
+/* cursive C logo styling */
+.cursive-c {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+/* Responsive base font sizing: keep fixed for consistent layout on laptops */
+html { font-size: 16px; }
+@media (min-width: 1280px) {
+  /* very large screens: tiny increase only */
+  html { font-size: 16.25px; }
+}
+
+/* Utility: make primary buttons a bit taller on touch devices */
+.btn-lg { @apply px-5 py-3 rounded-lg text-base; }
+

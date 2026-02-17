@@ -1,0 +1,38 @@
+# Frontend (Node/Next) ignores
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnp.*
+.pnp.js
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Local envs
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env
+
+# Logs
+logs/
+*.log
+
+# OS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Caches / coverage
+.cache/
+coverage/
+
+# Lockfile if you prefer not to track it (usually you do track lockfiles)
+# package-lock.json
