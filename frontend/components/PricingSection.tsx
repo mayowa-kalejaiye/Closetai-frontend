@@ -37,12 +37,14 @@ const CheckIcon = () => (
   </svg>
 );
 
-// SVG Icon for excluded features
+// SVG Icon for excluded features (styled to match CheckIcon sizing)
 const TimesIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    className="h-5 w-5 text-red-400 dark:text-red-500 mr-3 flex-shrink-0"
     viewBox="0 0 20 20"
     fill="currentColor"
+    aria-hidden="true"
   >
     <path
       fillRule="evenodd"
@@ -52,28 +54,28 @@ const TimesIcon = () => (
   </svg>
 );
 
-// Data for the pricing plans
+// Data for the pricing plans (early-access wording — no payment yet)
 const pricingPlans: PricingPlan[] = [
   {
     name: 'Starter',
-    price: '$9',
-    pricePeriod: '/month',
-    description: 'Perfect for fashion enthusiasts getting started with AI styling.',
+    price: 'Early Access',
+    pricePeriod: null,
+    description: 'Free during early access — get outfit suggestions and explore features.',
     features: [
       { text: 'Up to 50 wardrobe items', included: true },
       { text: 'Daily outfit suggestions', included: true },
       { text: 'Basic style analysis', included: true },
-      { text: 'Occasion-based recommendations', included: false },
+      { text: 'Occasion-based recommendations', included: true },
       { text: 'Style consultation access', included: false },
     ],
-    buttonText: 'Get Started',
+    buttonText: 'Join Waitlist',
     isPopular: false,
   },
   {
     name: 'Style Pro',
-    price: '$19',
-    pricePeriod: '/month',
-    description: 'For fashion-forward individuals who want premium AI styling.',
+    price: 'Planned',
+    pricePeriod: null,
+    description: 'Planned: advanced features for power users. Sign up to be notified when available.',
     features: [
       { text: 'Up to 200 wardrobe items', included: true },
       { text: 'Advanced AI outfit matching', included: true },
@@ -81,14 +83,14 @@ const pricingPlans: PricingPlan[] = [
       { text: 'Occasion-based suggestions', included: true },
       { text: 'Monthly style reports', included: true },
     ],
-    buttonText: 'Get Started',
+    buttonText: 'Notify Me',
     isPopular: true,
   },
   {
     name: 'Fashion Elite',
-    price: '$39',
-    pricePeriod: '/month',
-    description: 'For style influencers and fashion professionals.',
+    price: 'Planned',
+    pricePeriod: null,
+    description: 'Planned: premium tools and priority support for professionals. Join the waitlist to learn more.',
     features: [
       { text: 'Unlimited wardrobe items', included: true },
       { text: 'Premium AI styling algorithms', included: true },
@@ -96,7 +98,7 @@ const pricingPlans: PricingPlan[] = [
       { text: 'Trend analysis & forecasting', included: true },
       { text: 'Priority customer support', included: true },
     ],
-    buttonText: 'Go Elite',
+    buttonText: 'Notify Me',
     isPopular: false,
   },
 ];
@@ -177,11 +179,11 @@ const PricingSection: React.FC = () => {
       <div className="relative container mx-auto px-4">
         <div className="text-center max-w-4xl mx-auto mb-12 md:mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-zinc-900 mb-6 tracking-tight font-space-grotesk">
-            Choose Your Style Plan
+            Join Early Access (No Payments Yet)
           </h2>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-zinc-400 max-w-2xl mx-auto">
-                Unlock your wardrobe with AI-powered styling. Choose a plan that fits your needs.
-              </p>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-zinc-400 max-w-2xl mx-auto">
+            We're in an early-access pilot — no payment infrastructure yet. Sign up to join the pilot and get notified when full plans are available.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -195,11 +197,11 @@ const PricingSection: React.FC = () => {
           <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-600 dark:text-zinc-400">
             <span className="flex items-center">
               <CheckIcon />
-              Cancel anytime
+              Early access — no payments yet
             </span>
             <span className="flex items-center">
               <CheckIcon />
-              Secure & private
+              Privacy-first design
             </span>
             <span className="flex items-center">
               <CheckIcon />
