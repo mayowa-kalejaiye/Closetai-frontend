@@ -21,6 +21,9 @@ interface PricingCardProps {
   plan: PricingPlan;
 }
 
+// Waitlist URL (opens Google Form in a new tab)
+const WAITLIST_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfPU_n2z3_I3fcJP54S5d28aUu3anfrWX5Rm41dH7tzcwRvHA/viewform?usp=publish-editor';
+
 // SVG Icon for included features
 const CheckIcon = () => (
   <svg
@@ -160,9 +163,16 @@ const PricingCard: React.FC<PricingCardProps> = ({ plan }) => {
           </li>
         ))}
       </ul>
-      <button className={buttonClasses}>
+      <a
+        className={buttonClasses}
+        href={WAITLIST_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        role="button"
+        aria-label={`Open waitlist for ${plan.name}`}
+      >
         {plan.buttonText}
-      </button>
+      </a>
     </div>
   );
 };
