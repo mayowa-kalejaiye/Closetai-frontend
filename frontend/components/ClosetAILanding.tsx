@@ -28,7 +28,7 @@ export default function ClosetAILanding() {
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <motion.div<HTMLDivElement>
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -61,7 +61,7 @@ export default function ClosetAILanding() {
                 description: "Our AI learns from your feedback to provide better recommendations over time."
               }
             ].map((feature, index) => (
-              <motion.div
+              <motion.div<HTMLDivElement>
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -83,7 +83,7 @@ export default function ClosetAILanding() {
       {/* How It Works Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div
+          <motion.div<HTMLDivElement>
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -116,7 +116,7 @@ export default function ClosetAILanding() {
                 description: "Receive daily outfit suggestions tailored just for you."
               }
             ].map((step, index) => (
-              <motion.div
+              <motion.div<HTMLDivElement>
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function ClosetAILanding() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div
+          <motion.div<HTMLDivElement>
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}

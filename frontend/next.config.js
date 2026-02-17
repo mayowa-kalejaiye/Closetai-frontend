@@ -4,5 +4,8 @@ const withPWA = require('next-pwa')({
 })
 
 module.exports = withPWA({
-  // future config options can go here
+  // Skip ESLint during production builds (Vercel) to avoid incompatible CLI options
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 })

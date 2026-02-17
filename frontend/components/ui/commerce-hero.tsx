@@ -142,14 +142,14 @@ export function CommerceHero() {
             </div>
           </header>
 
-          <motion.section
+          <motion.section<HTMLElement>
             className="w-full px-4 py-24"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <div className="mx-auto text-center">
-              <motion.h1
+              <motion.h1<HTMLHeadingElement>
                 className="text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -163,7 +163,7 @@ export function CommerceHero() {
                   into simple collections.
                 </span>
               </motion.h1>
-              <motion.p
+              <motion.p<HTMLParagraphElement>
                 className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -178,7 +178,7 @@ export function CommerceHero() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mx-auto mt-12">
           {categories.map((category, index) => (
-            <motion.div
+            <motion.div<HTMLDivElement>
               key={category.title}
               className="group relative bg-muted/50 backdrop-blur-sm rounded-3xl p-4 sm:p-6 min-h-[250px] sm:min-h-[300px] w-full overflow-hidden transition-all duration-500"
               initial={{ opacity: 0, y: 20 }}
