@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+
+const MotionDiv: React.ComponentType<any> = motion.div as unknown as React.ComponentType<any>;
 import Link from 'next/link'
 import { Sparkles, Shirt, Heart, Zap, Star } from 'lucide-react';
 import Footer2 from './Footer2';
@@ -28,7 +30,7 @@ export default function ClosetAILanding() {
       {/* Features Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
-          <motion.div<HTMLDivElement>
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -41,7 +43,7 @@ export default function ClosetAILanding() {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Experience the future of fashion with AI-powered styling that understands your unique taste.
             </p>
-          </motion.div>
+          </MotionDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -61,7 +63,7 @@ export default function ClosetAILanding() {
                 description: "Our AI learns from your feedback to provide better recommendations over time."
               }
             ].map((feature, index) => (
-              <motion.div<HTMLDivElement>
+              <MotionDiv
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -74,7 +76,7 @@ export default function ClosetAILanding() {
                   {feature.title}
                 </h4>
                 <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
@@ -83,7 +85,7 @@ export default function ClosetAILanding() {
       {/* How It Works Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50">
         <div className="max-w-7xl mx-auto">
-          <motion.div<HTMLDivElement>
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -96,7 +98,7 @@ export default function ClosetAILanding() {
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Get styled in three simple steps
             </p>
-          </motion.div>
+          </MotionDiv>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
@@ -116,7 +118,7 @@ export default function ClosetAILanding() {
                 description: "Receive daily outfit suggestions tailored just for you."
               }
             ].map((step, index) => (
-              <motion.div<HTMLDivElement>
+              <MotionDiv
                 key={index}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -131,7 +133,7 @@ export default function ClosetAILanding() {
                   {step.title}
                 </h4>
                 <p className="text-gray-600">{step.description}</p>
-              </motion.div>
+              </MotionDiv>
             ))}
           </div>
         </div>
@@ -142,7 +144,7 @@ export default function ClosetAILanding() {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-blue-600 to-purple-600">
         <div className="max-w-4xl mx-auto text-center">
-          <motion.div<HTMLDivElement>
+          <MotionDiv
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -161,7 +163,7 @@ export default function ClosetAILanding() {
               Get Started
               <Zap className="ml-2 w-5 h-5" />
             </Link>
-          </motion.div>
+          </MotionDiv>
         </div>
       </section>
 

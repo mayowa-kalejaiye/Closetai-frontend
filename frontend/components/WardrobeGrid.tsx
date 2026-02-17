@@ -15,8 +15,11 @@ interface WardrobeItemProps {
   imageUrl: string;
   title: string;
   category: string;
+  /** type of garment (e.g., 'top', 'bottom', 'outerwear') */
+  type?: string;
   color: string;
   occasion: string;
+  liked?: boolean;
   pattern?: string;
   detection_confidence?: number;
   starred: boolean;
@@ -164,7 +167,7 @@ const WardrobeItemCard: React.FC<WardrobeItemProps & {
   onUpdateItem: (id: number, updates: Partial<WardrobeItemProps>) => void;
   onDeleteItem: (id: number) => void;
   onUpdateImage: (id: number, file: File) => void;
-  onItemClick: (item: any, rect: DOMRect) => void;
+  onItemClick: (item: any, rect: DOMRect, tryOn?: boolean) => void;
 }> = ({ 
   id, 
   imageUrl, 

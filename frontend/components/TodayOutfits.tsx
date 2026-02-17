@@ -6,6 +6,27 @@ import ThreeDCard from './ThreeDCard';
 import { useAuth } from '../context/AuthContext';
 import UpgradeModal from './UpgradeModal';
 
+// Outfit shape used across this file
+interface OutfitProps {
+  id: number;
+  items?: any[];
+  reason?: string;
+  occasion?: string;
+  style?: string;
+  completeness?: number;
+  liked?: boolean;
+  disliked?: boolean;
+  generated_image_url?: string;
+  tryon_image_url?: string;
+  visualization_type?: string;
+  llm_reasoning?: string;
+  styling_tips?: string;
+  llm_score?: number;
+  event_type?: string;
+  season?: string;
+  [key: string]: any;
+}
+
 function capitalize(s){
   if(!s) return ''
   return s.charAt(0).toUpperCase() + s.slice(1)

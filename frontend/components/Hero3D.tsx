@@ -2,6 +2,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+
+const MotionDiv: React.ComponentType<any> = motion.div as unknown as React.ComponentType<any>;
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
@@ -9,7 +11,7 @@ export default function Hero3D() {
   return (
     <section className="relative pt-24 pb-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <motion.div<HTMLDivElement>
+        <MotionDiv
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -36,9 +38,9 @@ export default function Hero3D() {
             </Link>
             
           </div>
-        </motion.div>
+        </MotionDiv>
 
-        <motion.div<HTMLDivElement>
+        <MotionDiv
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
@@ -92,7 +94,7 @@ export default function Hero3D() {
               </div>
             </div>
           </div>
-        </motion.div>
+        </MotionDiv>
       </div>
 
       <style jsx>{`

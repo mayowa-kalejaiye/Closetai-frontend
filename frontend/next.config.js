@@ -4,8 +4,7 @@ const withPWA = require('next-pwa')({
 })
 
 module.exports = withPWA({
-  // Skip ESLint during production builds (Vercel) to avoid incompatible CLI options
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Keep config minimal and compatible with Next 16/Turbopack
+  // If you need to opt out of Turbopack you can set the build flag instead.
+  turbopack: {},
 })
