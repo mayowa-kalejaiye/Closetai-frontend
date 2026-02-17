@@ -3,7 +3,7 @@ import { useAuth } from '../../context/AuthContext'
 import { useRouter } from 'next/router'
 import { Camera, Upload, Sparkles } from 'lucide-react'
 import ProtectedRoute from '../../components/ProtectedRoute'
-import { loadAuthToken } from '../../services/api'
+import { loadAuthToken, uploadFace } from '../../services/api'
 
 export default function OnboardingFace(){
   const { updateProfile } = useAuth()
@@ -36,20 +36,8 @@ export default function OnboardingFace(){
         throw new Error('No authentication token found. Please log in again.')
       }
 
-      const response = await fetch('http://localhost:8000/users/upload-face', {
-        method: 'POST',
-        body: formData,
-        headers: {
-          'Authorization': `Bearer ${token}`
-        }
-      })
-
-      if (!response.ok) {
-        const errorData = await response.json()
-        throw new Error(errorData.detail || `Upload failed with status ${response.status}`)
-      }
-
-      const data = await response.json()
+      // Use the centralized API helper so the configured API base URL is used
+      const data = await uploadFace(selectedFile)
 
       if(data.face_image_url){
         await updateProfile({ face_image_url: data.face_image_url })
