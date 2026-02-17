@@ -689,14 +689,16 @@ const WardrobeGrid: React.FC = () => {
         )}
       </div>
 
-      {/* Mobile floating Add Clothes FAB (only on small screens) */}
-      <button
-        onClick={() => setShowUploadModal(true)}
-        aria-label="Add clothes"
-        className="sm:hidden fixed bottom-6 right-4 z-50 inline-flex items-center justify-center w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:scale-105 transition-transform"
-      >
-        <PlusCircle className="w-6 h-6" />
-      </button>
+      {/* Mobile floating Add Clothes FAB (only on small screens). Hidden when wardrobe is empty because EmptyState already shows a primary button. */}
+      {items.length > 0 && (
+        <button
+          onClick={() => setShowUploadModal(true)}
+          aria-label="Add clothes"
+          className="sm:hidden fixed bottom-6 right-4 z-50 inline-flex items-center justify-center w-14 h-14 bg-blue-600 text-white rounded-full shadow-lg hover:scale-105 transition-transform"
+        >
+          <PlusCircle className="w-6 h-6" />
+        </button>
+      )}
 
       {/* Upload Modal */}
       {showUploadModal && (
@@ -991,21 +993,21 @@ const UploadModal: React.FC<{
               <div className="space-y-2 mb-4">
                 {selectedFiles.map((file, index) => (
                   <div key={index} className="flex items-center justify-between bg-white p-3 rounded-lg shadow-sm border">
-                    <div className="flex items-center">
-                      <img
-                        src={URL.createObjectURL(file)}
-                        alt={file.name}
-                        className="w-10 h-10 object-cover rounded mr-3"
-                      />
-                      <span className="text-sm text-gray-700 truncate">{file.name}</span>
+                      <div className="flex items-center min-w-0">
+                        <img
+                          src={URL.createObjectURL(file)}
+                          alt={file.name}
+                          className="w-10 h-10 object-cover rounded mr-3 flex-shrink-0"
+                        />
+                        <span className="text-sm text-gray-700 truncate max-w-[12rem]">{file.name}</span>
+                      </div>
+                      <button
+                        onClick={() => removeFile(index)}
+                        className="text-red-500 hover:text-red-700 ml-2 flex-shrink-0"
+                      >
+                        ✕
+                      </button>
                     </div>
-                    <button
-                      onClick={() => removeFile(index)}
-                      className="text-red-500 hover:text-red-700 ml-2"
-                    >
-                      ✕
-                    </button>
-                  </div>
                 ))}
               </div>
             )}
